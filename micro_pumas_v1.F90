@@ -1181,6 +1181,7 @@ subroutine micro_pumas_tend ( &
   !$acc               proc_rates%npratot,proc_rates%npsacwstot,               &
   !$acc               proc_rates%npraitot,proc_rates%npracstot,               &
   !$acc               proc_rates%nprctot,proc_rates%nprcitot,                 &
+  !$acc               proc_rates%npccntot,proc_rates%npccntot,                &
   !$acc               proc_rates%ncsedten,proc_rates%nisedten,                &
   !$acc               proc_rates%nrsedten,proc_rates%nssedten,                &
   !$acc               proc_rates%ngsedten,proc_rates%nmelttot,                &
@@ -1431,6 +1432,7 @@ subroutine micro_pumas_tend ( &
         proc_rates%npraitot(i,k)           = 0._r8
         proc_rates%npracstot(i,k)          = 0._r8
         proc_rates%nprctot(i,k)            = 0._r8
+        proc_rates%npccntot(i,k)           = 0._r8
         proc_rates%nraggtot(i,k)           = 0._r8
         proc_rates%nprcitot(i,k)           = 0._r8
         proc_rates%ncsedten(i,k)           = 0._r8
@@ -3085,6 +3087,7 @@ subroutine micro_pumas_tend ( &
         proc_rates%npraitot(i,k) = nprai(i,k)*icldm(i,k)
         proc_rates%npracstot(i,k) = npracs(i,k)*precip_frac(i,k)
         proc_rates%nprctot(i,k) = nprc(i,k)*lcldm(i,k)
+        proc_rates%npccntot(i,k) = npccn(i,k)*lcldm(i,k)
         proc_rates%nraggtot(i,k) = nragg(i,k)*precip_frac(i,k)
         proc_rates%nprcitot(i,k) = nprci(i,k)*icldm(i,k)
         proc_rates%nmeltstot(i,k) = ninstsm(i,k)/deltat
